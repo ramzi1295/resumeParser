@@ -1,0 +1,28 @@
+<!doctype html>
+<title>Resumes Upload</title>
+<h2 align="center" style="font-size: 28px; color: white; align-self: center" >Select file(s) to upload </h2><h4 align="center" style="font-size: 18px; color: white; align-self: center" >( Maximum 12GB )</h4>
+<h4 align="center"style="font-size: 18px; color: white; align-self: center" >( Only pdf, docx & doc extensions are supported )</h4>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<body style="background: dodgerblue;">
+<br><br>
+<form align="center" method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input  type="file" name="files[]" multiple="true" autocomplete="off" required>
+		</p>
+    </dl><br><br>
+    <p>
+		<input style="background-color: white; border: aqua; width: 100px; height: 30px;" type="submit" value="Submit">
+	</p>
+</form>
+</body>
